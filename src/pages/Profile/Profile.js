@@ -11,8 +11,6 @@ export const Profile = () => {
 
 	const user = useSelector((state) => state.auth);
 
-	console.log(user);
-
 	const logoutHandler = () => {
 		dispatch(logout());
 		toast.error("Logged out successfully");

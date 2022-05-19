@@ -30,7 +30,6 @@ export const Login = () => {
 		e.preventDefault();
 		if (userData.username && userData.password) {
 			const response = await dispatch(logIN(userData));
-			console.log(response);
 			if (response.payload.status === 200) {
 				localStorage.setItem(
 					"user",

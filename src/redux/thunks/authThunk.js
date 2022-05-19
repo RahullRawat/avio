@@ -6,11 +6,13 @@ export const logIN = createAsyncThunk(
 	async (userData, { rejectWithValue }) => {
 		try {
 			const response = await axios.post("/api/auth/login", userData);
-			console.log("thunk", response);
 			const data = { data: response.data, status: response.status };
 			return data;
 		} catch (error) {
-			return rejectWithValue({ status: error.response.status });
+			return rejectWithValue({
+				status: error.response.status,
+				data: error.response.data,
+			});
 		}
 	}
 );
@@ -20,11 +22,13 @@ export const signUp = createAsyncThunk(
 	async (userData, { rejectWithValue }) => {
 		try {
 			const response = await axios.post("/api/auth/signup", userData);
-			console.log(response);
 			const data = { data: response.data, status: response.status };
 			return data;
 		} catch (error) {
-			return rejectWithValue({ status: error.response.status });
+			return rejectWithValue({
+				status: error.response.status,
+				data: error.response.data,
+			});
 		}
 	}
 );

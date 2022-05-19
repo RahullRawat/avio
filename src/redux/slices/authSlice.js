@@ -7,8 +7,6 @@ const initialState = {
 	status: "idle",
 };
 
-console.log(initialState);
-
 const authSlice = createSlice({
 	name: "auth",
 	initialState,
@@ -42,7 +40,6 @@ const authSlice = createSlice({
 		},
 		[signUp.rejected]: (state, action) => {
 			state.status = "failed";
-			console.log(action);
 		},
 	},
 });
