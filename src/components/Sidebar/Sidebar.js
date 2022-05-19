@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export const Sidebar = () => {
+	const { token } = useSelector((state) => state.auth);
 	return (
 		<aside className="fixed  min-w-[10%] md:w-fit md:border-r-2 md:border-primary/75 min-h-full">
 			<ul>
@@ -17,13 +19,13 @@ export const Sidebar = () => {
 						<span className="md:hidden">Explore</span>
 					</li>
 				</Link>
-				<Link to="/bookmark">
+				<Link to={token ? "/bookmark" : "/login"}>
 					<li className=" cursor-pointer text-xl p-2 py-3 rounded-lg font-medium hover:bg-white hover:text-primary">
 						<i className="mr-4 fa-solid fa-bookmark"></i>
 						<span className="md:hidden">Bookmarks</span>
 					</li>
 				</Link>
-				<Link to="/profile">
+				<Link to={token ? "/profile" : "/login"}>
 					<li className=" cursor-pointer text-xl p-2 py-3 rounded-lg font-medium hover:bg-white hover:text-primary">
 						<i className="mr-4 fa-solid fa-user"></i>
 						<span className="md:hidden">Profile</span>
